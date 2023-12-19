@@ -1,0 +1,77 @@
+/*重置浏览器自带样式*/
+
+@charset "utf-8";
+
+html,
+body,
+div,
+span,
+p,
+ol,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  border: none;
+  /* max-width: 100% !important; */
+  vertical-align: middle;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: #ffffff;
+}
+
+input[disabled] {
+  color: #666;
+  -webkit-text-fill-color: #666;
+  -webkit-opacity: 0.8;
+  opacity: 0.8;
+}
+textarea[disabled="disabled"] {
+  color: #666;
+  -webkit-text-fill-color: #666;
+  -webkit-opacity: 0.8;
+  opacity: 0.8;
+}
+input {
+  border: none;
+  background: none;
+  opacity: 1;
+  outline: none;
+  padding: 0;
+}
+textarea {
+  resize: none;
+  border: none;
+  outline: none;
+}
+[type="search"]::-webkit-search-decoration {
+  display: none;
+}
+[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+html{
+  overflow-x: hidden;
+}
