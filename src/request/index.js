@@ -10,7 +10,8 @@ let http = axios.create({
 // 请求拦截器
 http.interceptors.request.use(
   config => {
-    config.headers['token'] = localStorage.getItem('UserLoginToken')
+    config.headers['token'] =
+      'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyOTBmNjJhYy04ZThkLTQ2ZTMtOTVhYS01OTI4NDczY2I2MDAiLCJzdWIiOiIxIiwiaXNzIjoi5Y2r5a6B5YGl5bq3IiwiaWF0IjoxNzAyNjE3NDAyfQ.TCcHsAFpq9Xp7kVk8lESutM8WJm_GzE7U310SN1n_Bc'
 
     if (config.needForm) {
       // multipart/form-data ： 需要在表单中进行文件上传时，就需要使用该格式
@@ -19,7 +20,7 @@ http.interceptors.request.use(
     } else {
       config.headers['Content-Type'] = 'application/json;charset=UTF-8'
     }
-
+    config.headers['Version'] = '00'
     if (config.loading) {
       needLoadingRequestCount++ //每次发送一个请求就进行++
       loadingInstance = ElLoading.service({
@@ -140,4 +141,4 @@ function post (url, data, config = { needForm: false, loading: false }) {
   })
 }
 
-export default http
+export { get, post }

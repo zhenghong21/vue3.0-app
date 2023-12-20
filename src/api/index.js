@@ -1,18 +1,21 @@
-import http from '@/request'
-const $axios = http
+import { post } from '@/request/index'
+import axios from 'axios'
+// const $axios = http
 let $ApiUrl = window.config.$ApiUrl
-//表单接口,提交保存接口和获取详情的接口
-/**
- *
- * @param {接口请求入参} params
- * @param {入参是不是需要formData格式} needForm
- * @param {接口是否需要loading格式} loading
- * @returns
- */
+let esUrl = '/esUrl'
 export const SubmitOrGetDetailFn = (params, config) => {
-  return $axios.post(
-    `${$ApiUrl}/rhm-gateway/api/v2/agent/remote`,
-    params,
-    config
-  )
+  return post(`${$ApiUrl}/rhm-gateway/api/v2/agent/remote`, params, {
+    needForm: false,
+    loading: ture
+  })
+}
+
+export const postFormDetailsSearch = (params = {}) => {
+  return post(`${esUrl}/formdetails/_doc/_search`, params, {
+    loading: false,
+    needForm: false,
+    headers: {
+      Authorization: 'Basic ZWxhc3RpYzp3YWRhdGE='
+    }
+  })
 }

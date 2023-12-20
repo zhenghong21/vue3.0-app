@@ -5,7 +5,16 @@ import path from 'path'
 export default defineConfig({
   plugins: [vue()],
   server: {
-    open: true
+    port: 8011,
+    open: true,
+    host: '127.0.0.1',
+    proxy: {
+      '/esUrl': {
+        target: 'http://172.16.7.161:9200',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/esUrl/, '')
+      }
+    }
   },
   resolve: {
     alias: {
